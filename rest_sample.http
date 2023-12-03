@@ -1,0 +1,36 @@
+
+### Completion with GPT-3
+curl https://demoaoai231203.openai.azure.com/openai/deployments/demo-gpt-35-turbo-instruct/completions?api-version=2023-09-15-preview \
+  -H "Content-Type: application/json" \
+  -H "api-key: YOUR_API_KEY" \
+  -d '{
+  "prompt": "Write a product launch email for new AI-powered headphones that are priced at $79.99 and available at Best Buy, Target and Amazon.com. The target audience is tech-savvy music lovers and the tone is friendly and exciting.\n\n1. What should be the subject line of the email?  \n2. What should be the body of the email?",
+  "max_tokens": 350,
+  "temperature": 1,
+  "frequency_penalty": 0,
+  "presence_penalty": 0,
+  "top_p": 1,
+  "best_of": 1,
+  "stop": null
+}'
+
+
+
+### ChatCompletion with GPT-3
+curl "https://demo-gpt4-canada2.openai.azure.com/openai/deployments/gpt-35-turbo/chat/completions?api-version=2023-07-01-preview" \
+  -H "Content-Type: application/json" \
+  -H "api-key: YOUR_API_KEY" \
+  -d '{
+  "messages": [
+    {"role":"system",
+        "content":"You are an AI assistant that helps people find information."},
+    {"role":"user",
+        "content":"hello"}],
+  "max_tokens": 800,
+  "temperature": 0.7,
+  "frequency_penalty": 0,
+  "presence_penalty": 0,
+  "top_p": 0.95,
+  "stop": null
+}'
+
