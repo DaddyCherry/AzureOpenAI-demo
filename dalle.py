@@ -9,7 +9,7 @@ openai.api_key = os.getenv("OPENAI_API_KEY").strip()
 openai.api_base = "https://demo-aoai231005.openai.azure.com/"
 
 response = openai.Image.create(
-    prompt='flat illust inside Azure datacenter',
+    prompt='楽し未来を予想させる華やかな車の映像',
     size='1024x1024',
     n=1
 )
