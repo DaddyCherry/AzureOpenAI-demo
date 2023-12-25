@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 openai.api_type = "azure"
-openai.api_base = "https://demo-aoai231005.openai.azure.com/"
+openai.api_base = "https://demo-openai231223.openai.azure.com/"
 openai.api_version = "2023-09-15-preview"
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
@@ -14,7 +14,7 @@ prompt_origin = '''79.99ドルで販売され、Best Buy、Target、Amazon.com �
 2.メールの本文はどうするか?'''
 
 response = openai.Completion.create(
-  engine="gpt-35-turbo-instruct",
+  engine="demo-gpt35-turbo-instruct",
   prompt=prompt_origin,
   temperature=1,
   max_tokens=1000,

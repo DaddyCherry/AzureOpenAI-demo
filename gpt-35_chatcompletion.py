@@ -4,10 +4,10 @@ from dotenv import load_dotenv
 load_dotenv()
 
 openai.api_type = "azure"
-openai.api_version = "2023-09-01-preview"
+openai.api_version = "2023-08-01-preview"
 openai.api_key = os.getenv("OPENAI_API_KEY").strip()
-openai.api_base = "https://demo-aoai231005.openai.azure.com/"
-model = "gpt-35-turbo-16k"
+openai.api_base = "https://demo-openai231223.openai.azure.com/"
+model = "demo-gpt35-turbo"
 
 
 text_prompt = "GPTは将来AGIになりますか？"
