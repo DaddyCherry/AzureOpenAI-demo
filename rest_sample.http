@@ -1,6 +1,6 @@
 
 ### Completion with GPT-3
-curl https://demoaoai231203.openai.azure.com/openai/deployments/demo-gpt-35-turbo-instruct/completions?api-version=2023-09-15-preview \
+curl https://demo-openai231223.openai.azure.com/openai/deployments/demo-gpt35-turbo/completions?api-version=2023-09-15-preview \
   -H "Content-Type: application/json" \
   -H "api-key: YOUR_API_KEY" \
   -d '{
@@ -10,14 +10,13 @@ curl https://demoaoai231203.openai.azure.com/openai/deployments/demo-gpt-35-turb
     "frequency_penalty": 0,
     "presence_penalty": 0,
     "top_p": 1,
-    "best_of": 1,
     "stop": null
   }'
 
 
 
 ### ChatCompletion with GPT-3
-curl "https://demo-gpt4-canada2.openai.azure.com/openai/deployments/gpt-35-turbo/chat/completions?api-version=2023-07-01-preview" \
+curl "https://demo-openai231223.openai.azure.com/openai/deployments/demo-gpt35-turbo/chat/completions?api-version=2023-07-01-preview" \
   -H "Content-Type: application/json" \
   -H "api-key: YOUR_API_KEY" \
   -d '{
@@ -45,3 +44,32 @@ curl https://demo-dalle.openai.azure.com/openai/deployments/Dalle3/images/genera
     "n": 1,
     "size": "1024x1024"
   }'
+
+
+
+### ChatCompletion with Azure AI Search
+curl -i -X POST https://demo-openai231223.openai.azure.com/openai/deployments/demo-gpt35-turbo/extensions/chat/completions?api-version=2023-08-01-preview \
+  -H "Content-Type: application/json" \
+  -H "api-key: YOUR_API_KEY" \
+  -d \
+    '
+    {
+      "dataSources": [
+        {
+          "type": "AzureCognitiveSearch",
+          "parameters": {
+            "endpoint": "https://demosrch231225std.search.windows.net",
+            "key": "TwGubaDAomb13mOc7dCueGfYMgCWh5tuAfwL06dTiuAzSeAW9G3O",
+            "indexName": "demoindex2"
+          }
+        }
+      ],
+      "messages": [
+        {"role":"system","content":"You are an AI assistant that helps people find information."},
+        {
+            "role": "user",
+            "content": "Id like to take a trip to New York. Where should I stay?"
+        }
+      ]
+    }
+    '
