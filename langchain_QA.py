@@ -28,8 +28,6 @@ aoai = AzureChatOpenAI(
     request_timeout=180,
 )
 
-# with open('./some_long_document.txt', 'r') as file:
-#     long_text = file.read()
 
 loader = TextLoader('./some_fictional_story.txt')
 documents = loader.load()
