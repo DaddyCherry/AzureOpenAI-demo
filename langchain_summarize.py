@@ -13,9 +13,6 @@ openai.api_key = os.getenv("OPENAI_API_KEY").strip()
 openai.api_base = "https://demo-openai231223.openai.azure.com/"
 
 
-with open('./some_long_document.txt', 'r') as file:
-    long_text = file.read()
-
 aoai = AzureChatOpenAI(
     client=None,
     deployment_name="demo-gpt35-turbo",
@@ -25,6 +22,9 @@ aoai = AzureChatOpenAI(
     temperature=0,
     request_timeout=180,
 )
+
+with open('./some_long_document.txt', 'r') as file:
+    long_text = file.read()
 
 text_splitter = CharacterTextSplitter(chunk_size=1000)
 texts = text_splitter.split_text(long_text)
