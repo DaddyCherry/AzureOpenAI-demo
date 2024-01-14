@@ -58,8 +58,8 @@ curl -i -X POST https://demo-openai231223.openai.azure.com/openai/deployments/de
         {
           "type": "AzureCognitiveSearch",
           "parameters": {
-            "endpoint": "https://demosrch231225std.search.windows.net",
-            "key": {{$dotenv %AZURE_SEARCH_KEY}},
+            "endpoint": "https://demosrch240115std.search.windows.net",
+            "key": "{{$dotenv %AZURE_SEARCH_KEY}}",
             "indexName": "demoindex"
           }
         }
@@ -73,3 +73,4 @@ curl -i -X POST https://demo-openai231223.openai.azure.com/openai/deployments/de
       ]
     }
     '
+
