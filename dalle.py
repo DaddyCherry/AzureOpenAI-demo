@@ -1,20 +1,23 @@
 import os
-import openai
+import json
+from openai import AzureOpenAI
 from dotenv import load_dotenv
+
 load_dotenv()
 
-openai.api_type = "azure"
-openai.api_version = "2023-06-01-preview"
-openai.api_key = os.getenv("OPENAI_API_KEY").strip()
-openai.api_base = "https://demo-aoai231005.openai.azure.com/"
+api_key = os.getenv("DALLE_DEMO_KEY").strip()
 
-response = openai.Image.create(
-    prompt='楽し未来を予想させる華やかな車の映像',
-    size='1024x1024',
+client = AzureOpenAI(
+    api_version="2023-12-01-preview",
+    azure_endpoint="https://demo-dalle.openai.azure.com",
+    api_key=api_key,
+)
+
+result = client.images.generate(
+    model="Dalle3", # the name of your DALL-E 3 deployment
+    prompt="楽し未来を予想させる華やかな車の映像",
     n=1
 )
 
-print(response)
-
-image_url = response["data"][0]["url"]
+image_url = json.loads(result.model_dump_json())['data'][0]['url']
 print(image_url)
