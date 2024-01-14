@@ -2,7 +2,7 @@
 ### Completion with GPT-3
 curl https://demo-openai231223.openai.azure.com/openai/deployments/demo-gpt35-turbo/completions?api-version=2023-09-15-preview \
   -H "Content-Type: application/json" \
-  -H "api-key: YOUR_API_KEY" \
+  -H "api-key: {{$dotenv %OPENAI_API_KEY}}" \
   -d '{
     "prompt": "Write a product launch email for new AI-powered headphones that are priced at $79.99 and available at Best Buy, Target and Amazon.com. The target audience is tech-savvy music lovers and the tone is friendly and exciting.\n\n1. What should be the subject line of the email?  \n2. What should be the body of the email?",
     "max_tokens": 350,
@@ -18,7 +18,7 @@ curl https://demo-openai231223.openai.azure.com/openai/deployments/demo-gpt35-tu
 ### ChatCompletion with GPT-3
 curl "https://demo-openai231223.openai.azure.com/openai/deployments/demo-gpt35-turbo/chat/completions?api-version=2023-07-01-preview" \
   -H "Content-Type: application/json" \
-  -H "api-key: YOUR_API_KEY" \
+  -H "api-key: {{$dotenv %OPENAI_API_KEY}}" \
   -d '{
     "messages": [
       {"role":"system",
@@ -38,7 +38,7 @@ curl "https://demo-openai231223.openai.azure.com/openai/deployments/demo-gpt35-t
 ### DALL-E(Sweden Central)
 curl https://demo-dalle.openai.azure.com/openai/deployments/Dalle3/images/generations?api-version=2023-12-01-preview \
   -H "Content-Type: application/json" \
-  -H "api-key: YOUR_API_KEY" \
+  -H "api-key: {{$dotenv %DALLE_DEMO_KEY}}" \
   -d '{
     "prompt": "楽し未来を予想させる華やかな車の映像",
     "n": 1,
@@ -50,7 +50,7 @@ curl https://demo-dalle.openai.azure.com/openai/deployments/Dalle3/images/genera
 ### ChatCompletion with Azure AI Search
 curl -i -X POST https://demo-openai231223.openai.azure.com/openai/deployments/demo-gpt35-turbo/extensions/chat/completions?api-version=2023-08-01-preview \
   -H "Content-Type: application/json" \
-  -H "api-key: YOUR_API_KEY" \
+  -H "api-key: {{$dotenv %OPENAI_API_KEY}}" \
   -d \
     '
     {
@@ -59,8 +59,8 @@ curl -i -X POST https://demo-openai231223.openai.azure.com/openai/deployments/de
           "type": "AzureCognitiveSearch",
           "parameters": {
             "endpoint": "https://demosrch231225std.search.windows.net",
-            "key": "TwGubaDAomb13mOc7dCueGfYMgCWh5tuAfwL06dTiuAzSeAW9G3O",
-            "indexName": "demoindex2"
+            "key": {{$dotenv %AZURE_SEARCH_KEY}},
+            "indexName": "demoindex"
           }
         }
       ],
