@@ -1,3 +1,5 @@
+#openai==1.7.2
+
 import os
 import json
 from openai import AzureOpenAI

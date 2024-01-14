@@ -1,3 +1,5 @@
+# openai==0.28
+
 import os, openai, requests
 from dotenv import load_dotenv
 load_dotenv()
