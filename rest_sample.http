@@ -24,9 +24,9 @@ curl "https://demo-openai231223.openai.azure.com/openai/deployments/demo-gpt35-t
       {"role":"system",
           "content":"You are an AI assistant that helps people find information."},
       {"role":"user",
-          "content":"hello"}],
+          "content":"Azureについて教えて"}],
     "max_tokens": 800,
-    "temperature": 0.7,
+    "temperature": 0,
     "frequency_penalty": 0,
     "presence_penalty": 0,
     "top_p": 0.95,
@@ -40,7 +40,7 @@ curl https://demo-dalle.openai.azure.com/openai/deployments/Dalle3/images/genera
   -H "Content-Type: application/json" \
   -H "api-key: {{$dotenv %DALLE_DEMO_KEY}}" \
   -d '{
-    "prompt": "楽し未来を予想させる華やかな車の映像",
+    "prompt": "家財保険 ロゴ",
     "n": 1,
     "size": "1024x1024"
   }'
@@ -58,9 +58,9 @@ curl -i -X POST https://demo-openai231223.openai.azure.com/openai/deployments/de
         {
           "type": "AzureCognitiveSearch",
           "parameters": {
-            "endpoint": "https://demosrch240115std.search.windows.net",
-            "key": "{{$dotenv %AZURE_SEARCH_KEY}}",
-            "indexName": "demoindex"
+            "endpoint": "https://demoaisrch240117.search.windows.net",
+            "key": "xvOs1mOx6EjD9535gjaTmNAN7oZkNkGVv33naUAdAIAzSeAqk9fS",
+            "indexName": "demoindex2-index"
           }
         }
       ],

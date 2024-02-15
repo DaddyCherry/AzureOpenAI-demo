@@ -17,7 +17,7 @@ client = AzureOpenAI(
 
 result = client.images.generate(
     model="Dalle3", # the name of your DALL-E 3 deployment
-    prompt="楽し未来を予想させる華やかな車の映像",
+    prompt="ねこたぬきキャラクター",
     n=1
 )
 
