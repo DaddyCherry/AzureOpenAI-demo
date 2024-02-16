@@ -8,7 +8,6 @@ openai.api_type = "azure"
 openai.api_version = "2023-08-01-preview"
 openai.api_key = os.getenv("OPENAI_API_KEY").strip()
 openai.api_base = "https://demo-openai231223.openai.azure.com/"
-azure_search_key = os.getenv("AZURE_SEARCH_KEY").strip()
 model = "demo-gpt35-turbo"
 
 search_endpoint = "https://demoaisrch240117.search.windows.net"; # Add your Azure AI Search endpoint here
