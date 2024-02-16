@@ -11,7 +11,6 @@ openai.api_base = "https://demo-openai231223.openai.azure.com/"
 model = "demo-gpt35-turbo"
 
 search_endpoint = "https://demoaisrch240117.search.windows.net"; # Add your Azure AI Search endpoint here
-# search_key = os.getenv("AZURE_SEARCH_KEY"); # Add your Azure AI Search admin key here
 search_key = 'xvOs1mOx6EjD9535gjaTmNAN7oZkNkGVv33naUAdAIAzSeAqk9fS' # Add your Azure AI Search admin key here
 search_index_name = "demoindex2-index"; # Add your Azure AI Search index name here
 
