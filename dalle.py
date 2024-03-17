@@ -8,10 +8,11 @@ from dotenv import load_dotenv
 load_dotenv()
 
 api_key = os.getenv("DALLE_DEMO_KEY").strip()
+# print(api_key)
 
 client = AzureOpenAI(
-    api_version="2023-12-01-preview",
-    azure_endpoint="https://demo-dalle.openai.azure.com",
+    api_version="2024-02-01",
+    azure_endpoint="https://demo-aoai-sweden240317.openai.azure.com/",
     api_key=api_key,
 )
 

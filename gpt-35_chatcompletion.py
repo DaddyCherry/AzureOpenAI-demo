@@ -1,25 +1,35 @@
-# openai==0.28
-
 import os
-import openai
+from openai import AzureOpenAI
 from dotenv import load_dotenv
+
+
 load_dotenv()
 
-openai.api_type = "azure"
-openai.api_version = "2023-08-01-preview"
-openai.api_key = os.getenv("OPENAI_API_KEY").strip()
-openai.api_base = "https://demo-openai231223.openai.azure.com/"
-model = "demo-gpt35-turbo"
 
 
-text_prompt = "GPTは将来AGIになりますか？"
+client = AzureOpenAI(
+  azure_endpoint = "https://demoaoai230213.openai.azure.com/", 
+  api_key=os.getenv("AZURE_OPENAI_KEY"),  
+  api_version="2024-02-15-preview"
+)
 
-response = openai.ChatCompletion.create(
-  engine=model,
-  messages = [{"role":"system", "content":"You are a helpful assistant."},
-               {"role":"user","content":text_prompt},])
+user_msg = 'Azureで最も最新のテクノロジーは何でしょうか？'
 
-print(response)
+message_text = [
+    {"role":"system","content":"You are an AI assistant that helps people find information."},
+    {"role":"user","content":user_msg},
+    ]
 
-res = response['choices'][0]['message']['content']
-print(res)
+completion = client.chat.completions.create(
+  model="demo-gpt-35-turbo", # model = "deployment_name"
+  messages = message_text,
+  temperature=0.7,
+  max_tokens=800,
+  top_p=0.95,
+  frequency_penalty=0,
+  presence_penalty=0,
+  stop=None
+)
+
+
+print(completion.choices[0].message.content)
